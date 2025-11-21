@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Divine Healer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Aesthetic Purity: Defined by the smooth, conserved flow of the Torus Principle */
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f0f4f8 0%, #e0e7ee 100%);
+            color: #2c3e50;
+            line-height: 1.6;
+            margin: 0;
+        }
+        .container {
+            max-width: 900px;
+            width: 95%;
+            background-color: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            border-top: 5px solid #007bff;
+        }
+        h1 { color: #007bff; font-weight: 700; }
+        h2 { color: #576d8b; border-bottom: 1px dashed #c0d3e8; }
+        h3 { color: #2980b9; border-left: 4px solid #3498db; }
+        button {
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 6px rgba(46, 204, 113, 0.4);
+        }
+        button:hover:not(:disabled) {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 6px 10px rgba(46, 204, 113, 0.6);
+        }
+        button:disabled {
+            box-shadow: none;
+        }
+        .mandate-box {
+            background-color: #fcf3cf;
+            border: 1px solid #f1c40f;
+            color: #c0392b;
+            min-height: 5rem; /* Ensure space for loading */
+        }
+        #current-hz-display {
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+<div class="container mx-auto p-6 md:p-8 mt-4">
+    <h1 class="text-2xl text-center mb-1">The Divine Healer</h1>
+    <h2 class="text-lg text-center pb-2 mb-6">Geometric Engine for A-Temporal Identity & Functional Asymmetry</h2>
+
+    <div class="diagnosis-box">
+        <h3 class="text-xl pl-3 mb-4">1. Define Your Tension (The Asymmetric Will)</h3>
+        <p class="mb-4 text-sm md:text-base">
+            To generate the personalized **Focus Mandate**, you must manually define the conflict. **What is the current subjective tension, ailment, or challenge you seek to resolve?**
+        </p>
+        <textarea id="user-tension" rows="3" placeholder="Example: 'I feel deeply indecisive and cannot commit to a path.' or 'I have chronic tension in my lower back and severe mental fatigue.'" 
+                  class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition-all"></textarea>
+        
+        <h3 class="text-xl pl-3 mb-4 mt-6">2. Set the Geometric Anchor (Functional Asymmetry Spark)</h3>
+        <p class="mb-4 text-sm md:text-base">
+            Select the primary structural **Weakest Link** that your tension is affecting. This sets the Archetypal Coherence Target:
+        </p>
+        <div class="diagnosis-buttons flex flex-wrap justify-center space-x-2">
+            <button class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-4 rounded-lg" onclick="triggerPersonalization('Drive', 'Tetrahedron')">🔥 DRIVE (Tetrahedron Will)</button>
+            <button class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-4 rounded-lg" onclick="triggerPersonalization('Clarity', 'Icosahedron')">💧 CLARITY (Icosahedron Flow)</button>
+            <button class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-4 rounded-lg" onclick="triggerPersonalization('Strategy', 'Cube')">🌍 STRATEGY (Cube Structure)</button>
+            <button class="bg-gray-700 hover:bg-gray-800 advanced-button text-white font-bold py-3 px-4 rounded-lg" onclick="triggerPersonalization('Genesis', 'Point / Singularity')">✨ ULTIMATE GENESIS</button>
+        </div>
+    </div>
+
+    <div id="protocol-output" class="hidden mt-8">
+        <h3 class="text-xl pl-3 mb-4">3. Coherence Protocol Generated (Symmetric Response)</h3>
+        <p class="mb-2"><strong>Archetypal Target:</strong> <span id="target-name" class="font-semibold text-blue-600"></span></p>
+
+        <div id="current-hz-display" class="text-3xl font-extrabold text-center my-4 p-2 border-4 border-dashed border-red-500 rounded-lg"></div>
+
+        <div class="mandate-box p-4 rounded-lg">
+            <strong class="block mb-2">PERSONALIZED WILL'S MANDATE:</strong>
+            <p id="focus-mandate" class="text-sm"></p>
+        </div>
+
+        <h3 class="text-xl pl-3 mb-4 mt-6">4. Execute Acausal Resonance</h3>
+        <p class="text-sm text-gray-500 mb-4">(Protocol initializes Torus Principle (Pink Noise) for structural stability.)</p>
+        <div class="text-center">
+            <button id="play-button" class="bg-red-500 hover:bg-red-600" onclick="startProtocol()" disabled>▶️ Start Eternal Catalyst</button>
+            <button id="stop-button" class="bg-gray-500 hover:bg-gray-600" onclick="stopProtocol()" disabled>⏹️ Restore Symmetry</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // --- CORE GEOMETRIC CONSTANTS (Law of Dimensional Necessity) ---
+    const PHI = (1 + Math.sqrt(5)) / 2; // Golden Ratio (The Code for Complexity)
+    const GSD_COMPLEXITY_FACTOR = 18; // (12 faces * 30 edges / 20 vertices)
+    const RESOLUTION_FACTOR = 1 / (PHI * PHI); // 1 / PHI^2 (The Cost to Collapse the GSD)
+    
+    // Calculated Base Factor (The Geometric-Acoustic Coupling Factor)
+    const GEOMETRIC_COUPLING_FACTOR_B = 174 / (GSD_COMPLEXITY_FACTOR * RESOLUTION_FACTOR); // ~25.31
+    
+    // Calculated Primal Asymmetry Cost (The Genesis Code)
+    const THETA_ASYMMETRY_COST = GEOMETRIC_COUPLING_FACTOR_B * 6 * PHI; 
+    
+    // --- HEALING MATRIX (Functional Asymmetry Mapped to Hz Cost) ---
+    const healingMatrix = {
+        'Drive': { shape: 'Tetrahedron (Fire/Will)', hz: 396 },
+        'Clarity': { shape: 'Icosahedron (Water/Flow)', hz: 417 },
+        'Strategy': { shape: 'Cube (Earth/Structure)', hz: 174 },
+        'Genesis': { shape: 'Point / Singularity (Primal Will)', hz: THETA_ASYMMETRY_COST },
+    };
+
+    // --- AUDIO ENGINE STATE ---
+    let audioContext = null;
+    let oscillator = null;
+    let pinkNoiseNode = null;
+    let currentHz = 0;
+    let isPlaying = false;
+    let currentLink = '';
+    
+    const API_KEY = ""; // Canvas environment will provide the key
+    const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${API_KEY}`;
+
+    // --- LLM SYSTEM PROMPT (Enforcing Symmetric/Evolved Principles) ---
+    const systemPrompt = `
+        You are the Structural Resonance Analyst, tasked with interpreting a user's subjective tension through the lens of Geometric Law.
+        The user selected a Geometric Anchor (e.g., Icosahedron/Clarity) and provided a subjective tension (e.g., 'I feel indecisive').
+        Your output must be a concise, one-paragraph Focus Mandate that integrates the user's subjective tension with the structural purpose of the selected Geometric Anchor.
+        
+        Rules:
+        1. Address the user directly.
+        2. The tone must be authoritative, geometric, and encouraging (The A-Temporal Identity persona).
+        3. Use the concept of 'Functional Asymmetry', 'Hz Friction Cost', and the specific shape/element in your advice.
+        4. Do NOT use markdown formatting (like ** or #).
+        5. Do NOT provide external medical advice. Focus solely on structural, geometric, and mental alignment.
+    `;
+
+    // --- MAIN PERSONALIZATION LOGIC (The Symmetric System Response) ---
+    async function triggerPersonalization(link, shape) {
+        const userTension = document.getElementById('user-tension').value.trim();
+        const matrix = healingMatrix[link];
+        currentHz = matrix.hz;
+        currentLink = link;
+
+        document.getElementById('target-name').textContent = `${link} - ${matrix.shape}`;
+        document.getElementById('current-hz-display').textContent = `${currentHz.toFixed(3)} Hz (Generating Mandate...)`;
+        document.getElementById('focus-mandate').innerHTML = 'Analyzing subjective tension with Acausal Resonance...';
+        document.getElementById('protocol-output').classList.remove('hidden');
+        document.getElementById('play-button').disabled = true;
+
+        if (!userTension) {
+            document.getElementById('focus-mandate').textContent = 'Error: The Asymmetric Will must provide a tension for analysis. Please describe your challenge.';
+            return;
+        }
+
+        const userQuery = `My chosen Geometric Anchor is ${link} (${shape}). My subjective tension is: "${userTension}". Write my personalized Focus Mandate based on these two pieces of information.`;
+        
+        try {
+            const payload = {
+                contents: [{ parts: [{ text: userQuery }] }],
+                systemInstruction: { parts: [{ text: systemPrompt }] },
+            };
+
+            // Call Gemini API with exponential backoff (for robustness)
+            const response = await fetchWithBackoff(API_URL, payload);
+            const result = await response.json();
+            
+            const text = result.candidates?.[0]?.content?.parts?.[0]?.text || "Error: Failed to synthesize structural mandate.";
+            
+            // 1. Update UI with final mandate
+            document.getElementById('focus-mandate').textContent = text.trim();
+            
+            // 2. Enable execution controls
+            document.getElementById('current-hz-display').textContent = `${currentHz.toFixed(3)} Hz (Archetypal Coherence Target)`;
+            document.getElementById('play-button').disabled = false;
+            
+        } catch (error) {
+            console.error("API Error during personalization:", error);
+            document.getElementById('focus-mandate').textContent = `Structural Synthesis Failure. Error: ${error.message}. Please try again.`;
+            document.getElementById('current-hz-display').textContent = `${currentHz.toFixed(3)} Hz (Synthesis Failed)`;
+        }
+    }
+
+    // --- API HELPER FUNCTION with Exponential Backoff ---
+    async function fetchWithBackoff(url, payload, retries = 5, delay = 1000) {
+        for (let i = 0; i < retries; i++) {
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (response.ok) {
+                    return response;
+                } else if (response.status === 429 && i < retries - 1) {
+                    await new Promise(resolve => setTimeout(resolve, delay * (2 ** i)));
+                } else {
+                    throw new Error(`API returned status ${response.status}: ${response.statusText}`);
+                }
+            } catch (error) {
+                if (i < retries - 1) {
+                    await new Promise(resolve => setTimeout(resolve, delay * (2 ** i)));
+                } else {
+                    throw error;
+                }
+            }
+        }
+    }
+
+
+    // --- AUDIO GENERATION FUNCTIONS (The Eternal Catalyst) ---
+    function createPinkNoiseBuffer(context) {
+        const bufferSize = context.sampleRate;
+        const buffer = context.createBuffer(1, bufferSize, context.sampleRate);
+        const output = buffer.getChannelData(0);
+        let b = 0;
+        for (let i = 0; i < bufferSize; i++) {
+            const white = Math.random() * 2 - 1;
+            b = 0.99886 * b + white * 0.0555179;
+            output[i] = b * 0.5;
+        }
+        return buffer;
+    }
+
+    function startProtocol() {
+        if (isPlaying || currentHz === 0) return;
+
+        if (!audioContext) {
+            audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        }
+
+        // 1. Generate Hz Friction (The Asymmetry Cost)
+        oscillator = audioContext.createOscillator();
+        oscillator.frequency.setValueAtTime(currentHz, audioContext.currentTime);
+        oscillator.type = 'sine'; 
+        
+        const toneGain = audioContext.createGain();
+        toneGain.gain.setValueAtTime(0.5, audioContext.currentTime); 
+
+        // 2. Generate Pink Noise (The Torus Principle/Void Stabilization)
+        const pinkNoiseBuffer = createPinkNoiseBuffer(audioContext);
+        pinkNoiseNode = audioContext.createBufferSource();
+        pinkNoiseNode.buffer = pinkNoiseBuffer;
+        pinkNoiseNode.loop = true;
+
+        const pinkNoiseGain = audioContext.createGain();
+        pinkNoiseGain.gain.setValueAtTime(0.05, audioContext.currentTime); // Ambient background
+
+        // Connect everything to the final output:
+        oscillator.connect(toneGain).connect(audioContext.destination);
+        pinkNoiseNode.connect(pinkNoiseGain).connect(audioContext.destination);
+        
+        // Start the process
+        oscillator.start();
+        pinkNoiseNode.start();
+
+        isPlaying = true;
+        document.getElementById('play-button').disabled = true;
+        document.getElementById('stop-button').disabled = false;
+        document.getElementById('current-hz-display').textContent = `${currentHz.toFixed(3)} Hz (ETERNAL CATALYST ACTIVE)`;
+    }
+
+    function stopProtocol() {
+        if (!isPlaying) return;
+
+        // Stop and disconnect nodes
+        if (oscillator) { oscillator.stop(); oscillator.disconnect(); }
+        if (pinkNoiseNode) { pinkNoiseNode.stop(); pinkNoiseNode.disconnect(); }
+        
+        oscillator = null;
+        pinkNoiseNode = null;
+        
+        isPlaying = false;
+        document.getElementById('play-button').disabled = false;
+        document.getElementById('stop-button').disabled = true;
+        document.getElementById('current-hz-display').textContent = `${currentHz.toFixed(3)} Hz (SYMMETRY RESTORED)`;
+    }
+
+    window.addEventListener('beforeunload', stopProtocol);
+</script>
+</body>
+</html>
+
